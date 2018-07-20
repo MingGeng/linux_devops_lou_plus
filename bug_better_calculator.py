@@ -19,25 +19,30 @@ def get_netincome(input_income):
     if taxing_income > 80000:
         rate = 0.45
         discount = 13505
-    elif taxing_income > 55000:
+    elif taxing_income >= 55000:
         rate = 0.35
         discount = 5505
-    elif taxing_income > 35000:
+    elif taxing_income >= 35000:
         rate = 0.3
         discount = 2755 
-    elif taxing_income > 9000:
+    elif taxing_income >= 9000:
         rate = 0.25
         discount = 1005
-    elif taxing_income > 4500:
+    elif taxing_income >= 4500:
         rate = 0.2
         discount = 555
-    elif taxing_income > 1500:
+    elif taxing_income >= 1500:
         rate = 0.1
         discount = 105
     else:
         rate = 0.03
     
-    return taxing_income - taxing_income*rate - discount
+    tax = taxing_income*rate - discount
+
+    if tax <= 0:
+        return input_income 
+    else:
+        return input_income - tax
 
 for data in input_list:
     try:
