@@ -92,13 +92,12 @@ def main(choose):
 
     print("=========================================================")
 
-if __name__ == '__main__':
+    if __name__ == '__main__':
     choose = ''
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1 and sys.argv[1] != 'all' :
         choose = sys.argv[1]
         main(choose)
     else:
         for k in PROC_FILE:
             main(k)
-
 
